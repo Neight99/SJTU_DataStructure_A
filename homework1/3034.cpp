@@ -9820,6 +9820,7 @@ int main() {
 
     int n = sizeof(list1) / sizeof(int);
     int x, m;
+    cout<<n;
     cin >> x;
     for (m = 0; m < n + 1; m++) {
         if (x == list1[m]) {
