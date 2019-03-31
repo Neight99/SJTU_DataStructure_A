@@ -79,8 +79,10 @@ int main() {
     qSort(mountain, 1, n);
 
     for (int i = 2; i < n; i++) {
-        if (mountain[i].pos + mountain[i].height < mountain[i + 1].pos ||
-            mountain[i].pos - mountain[i].height > mountain[i - 1].pos) {
+        if (mountain[i].pos - mountain[i].height > mountain[i - 1].pos) {
+            sum++;
+        } else if (mountain[i].pos + mountain[i].height < mountain[i + 1].pos) {
+            mountain[i].pos += mountain[i].height;
             sum++;
         }
     }

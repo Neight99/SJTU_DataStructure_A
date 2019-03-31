@@ -5,8 +5,6 @@ using namespace std;
 char input1[1001000], save[1001000];
 
 int main() {
-    freopen("in.in", "r", stdin);
-    freopen("out.out", "w", stdout);
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
@@ -70,7 +68,5 @@ int main() {
             }
         }
     }
-    fclose(stdin);
-    fclose(stdout);
     return 0;
 }
