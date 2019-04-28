@@ -100,7 +100,8 @@ class bTree {
 
 template <class T>
 class binaryTree : public bTree<T> {
-    friend void printTree(const binaryTree &, T flag);
+    template <class S>
+    friend void printTree(const binaryTree<S> &, S flag);
 
    private:
     struct Node {
@@ -323,9 +324,9 @@ void binaryTree<T>::createTree(T flag) {
     cout << "create complete!\n";
 }
 
-template <class T>
-void printTree(const binaryTree<T> &t, T flag) {
-    seqQueue<T> q;
+template <class S>
+void printTree(const binaryTree<S> &t, S flag) {
+    seqQueue<S> q;
     q.enQueue(t.root->data);
     cout << endl;
     while (!q.isEmpty()) {
