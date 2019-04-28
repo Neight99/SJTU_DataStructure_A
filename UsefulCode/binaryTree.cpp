@@ -1,7 +1,3 @@
-#include <iostream>
-
-using namespace std;
-
 template <class elemType>
 class queue {
    public:
