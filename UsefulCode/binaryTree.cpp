@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 template <class elemType>
 class queue {
    public:
@@ -255,7 +259,7 @@ typename binaryTree<T>::Node *binaryTree<T>::find(
     if (t->data == x) {
         return t;
     }
-    if (tmp == find(x, t->left)) {
+    if (tmp = find(x, t->left)) {
         return tmp;
     } else {
         return find(x, t->right);
