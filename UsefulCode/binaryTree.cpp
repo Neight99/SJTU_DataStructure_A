@@ -257,7 +257,7 @@ typename binaryTree<T>::Node *binaryTree<T>::find(
     if (tmp == find(x, t->left)) {
         return tmp;
     } else {
-        return find(x->right);
+        return find(x, t->right);
     }
 }
 
