@@ -52,34 +52,22 @@ MyComplex MyComplex::operator/(const MyComplex &right) const {
 }
 
 MyComplex &MyComplex::operator+=(const MyComplex &right) {
-    x = x + right.x;
-    y = y + right.y;
+    (*this) = (*this) + right;
     return *this;
 }
 
 MyComplex &MyComplex::operator-=(const MyComplex &right) {
-    x = x - right.x;
-    y = y - right.y;
+    (*this) = (*this) - right;
     return *this;
 }
 
 MyComplex &MyComplex::operator*=(const MyComplex &right) {
-    MyComplex tmp;
-    tmp.x = x;
-    tmp.y = y;
-    x = tmp.x * right.x - tmp.y * right.y;
-    y = tmp.x * right.y + tmp.y * right.x;
+    (*this) = (*this) * right;
     return *this;
 }
 
 MyComplex &MyComplex::operator/=(const MyComplex &right) {
-    MyComplex tmp;
-    tmp.x = x;
-    tmp.y = y;
-    x = (tmp.x * right.x + tmp.y * right.y) /
-        (right.x * right.x + right.y * right.y);
-    y = (tmp.y * right.x - tmp.x * right.y) /
-        (right.x * right.x + right.y * right.y);
+    (*this) = (*this) / right;
     return *this;
 }
 
