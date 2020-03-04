@@ -9,40 +9,40 @@ class MyComplex {
 
    public:
     MyComplex(int a = 0, int b = 0) : x(a), y(b) {}
-    MyComplex operator+(const MyComplex &);
-    MyComplex operator-(const MyComplex &);
-    MyComplex operator*(const MyComplex &);
-    MyComplex operator/(const MyComplex &);
+    MyComplex operator+(const MyComplex &) const;
+    MyComplex operator-(const MyComplex &) const;
+    MyComplex operator*(const MyComplex &)const;
+    MyComplex operator/(const MyComplex &) const;
     MyComplex &operator+=(const MyComplex &);
     MyComplex &operator-=(const MyComplex &);
     MyComplex &operator*=(const MyComplex &);
     MyComplex &operator/=(const MyComplex &);
     friend istream &operator>>(istream &, MyComplex &);
-    friend ostream &operator<<(ostream &, MyComplex &);
+    friend ostream &operator<<(ostream &, const MyComplex &);
 };
 
-MyComplex MyComplex::operator+(const MyComplex &right) {
+MyComplex MyComplex::operator+(const MyComplex &right) const {
     MyComplex tmp;
     tmp.x = x + right.x;
     tmp.y = y + right.y;
     return tmp;
 }
 
-MyComplex MyComplex::operator-(const MyComplex &right) {
+MyComplex MyComplex::operator-(const MyComplex &right) const {
     MyComplex tmp;
     tmp.x = x - right.x;
     tmp.y = y - right.y;
     return tmp;
 }
 
-MyComplex MyComplex::operator*(const MyComplex &right) {
+MyComplex MyComplex::operator*(const MyComplex &right) const {
     MyComplex tmp;
     tmp.x = x * right.x - y * right.y;
     tmp.y = x * right.y + y * right.x;
     return tmp;
 }
 
-MyComplex MyComplex::operator/(const MyComplex &right) {
+MyComplex MyComplex::operator/(const MyComplex &right) const {
     MyComplex tmp;
     tmp.x =
         (x * right.x + y * right.y) / (right.x * right.x + right.y * right.y);
@@ -88,7 +88,7 @@ istream &operator>>(istream &is, MyComplex &right) {
     return is;
 }
 
-ostream &operator<<(ostream &os, MyComplex &right) {
+ostream &operator<<(ostream &os, const MyComplex &right) {
     os << setiosflags(ios::fixed) << setprecision(2) << right.x << ' '
        << right.y;
     return os;
@@ -97,19 +97,13 @@ ostream &operator<<(ostream &os, MyComplex &right) {
 int main() {
     MyComplex z1;
     MyComplex z2;
-    MyComplex z3, z4, z5, z6;
 
     cin >> z1 >> z2;
 
-    z3 = z1 + z2;
-    z4 = z1 - z2;
-    z5 = z1 * z2;
-    z6 = z1 / z2;
-
-    cout << z3 << endl;
-    cout << z4 << endl;
-    cout << z5 << endl;
-    cout << z6 << endl;
+    cout << z1 + z2 << endl;
+    cout << z1 - z2 << endl;
+    cout << z1 * z2 << endl;
+    cout << z1 / z2 << endl;
     cout << (z1 += z2) << endl;
     cout << (z1 -= z2) << endl;
     cout << (z1 *= z2) << endl;
